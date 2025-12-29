@@ -13,6 +13,7 @@ import EditMess from "./pages/vendor/EditMess";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import MessDetails from "./pages/student/MessDetails";
 
+import StudentProfile from "./pages/student/StudentProfile";
 
 
 
@@ -35,7 +36,8 @@ export default function App() {
       <Route path="/student" element={<StudentDashboard />} />
       <Route path="/student/mess/:messId" element={<MessDetails />} />
 
-  
+      <Route path="/student/profile" element={<StudentProfile />} />
+
       
     </Routes>
   );
