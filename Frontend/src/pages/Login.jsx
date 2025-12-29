@@ -26,7 +26,7 @@ export default function Login() {
       if (me.data.role === "OWNER") {
         navigate("/vendor");
       } else {
-        navigate("/messes");
+        navigate("/student");
       }
     } catch {
       setError("Invalid email or password");

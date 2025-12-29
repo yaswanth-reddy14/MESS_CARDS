@@ -1,15 +1,27 @@
 from rest_framework import serializers
 from .models import Mess, Menu
+from users.models import User   # ✅ FIX (THIS WAS MISSING)
 
 
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = "__all__"
-        read_only_fields = ("id", "mess")
+        fields = ["id", "name", "price", "meal_type"]
+
+
+class OwnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id","name", "email", "phone"]
 
 
 class MessSerializer(serializers.ModelSerializer):
+    owner = OwnerSerializer(read_only=True)
+    menu_items = MenuSerializer(
+        source="menus",
+        many=True,
+        read_only=True
+    )
 
     class Meta:
         model = Mess
@@ -22,4 +34,6 @@ class MessSerializer(serializers.ModelSerializer):
             "monthly_price",
             "meals_included",
             "image",
+            "owner",        # student sees owner
+            "menu_items",   # student sees menu
         ]

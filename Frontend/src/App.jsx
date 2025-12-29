@@ -10,6 +10,8 @@ import AddMess from "./pages/vendor/AddMess";
 import AddMenu from "./pages/vendor/AddMenu";
 import EditMenu from "./pages/vendor/EditMenu";
 import EditMess from "./pages/vendor/EditMess";
+import StudentDashboard from "./pages/student/StudentDashboard";
+import MessDetails from "./pages/student/MessDetails";
 
 
 
@@ -28,6 +30,10 @@ export default function App() {
       <Route path="/vendor/:messId/add-menu" element={<AddMenu />} />
       <Route path="/vendor/:messId/menu/:menuId/edit" element={<EditMenu />} />
       <Route path="/vendor/:messId/edit" element={<EditMess />} />
+
+      {/* Student */}
+      <Route path="/student" element={<StudentDashboard />} />
+      <Route path="/student/mess/:messId" element={<MessDetails />} />
 
   
       
