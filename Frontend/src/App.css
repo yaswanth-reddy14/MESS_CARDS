@@ -1,6 +1,6 @@
-/* =========================
+/* 
    DESIGN TOKENS
-========================= */
+ */
 :root {
   --primary: #6366f1;
   --primary-dark: #4f46e5;
@@ -13,9 +13,7 @@
   --danger: #ef4444;
 }
 
-/* =========================
-   GLOBAL RESET
-========================= */
+/* GLOBAL RESET */
 * {
   box-sizing: border-box;
 }
@@ -28,9 +26,9 @@ body {
   min-height: 100vh;
 }
 
-/* =========================
+/* 
    ANIMATIONS
-========================= */
+ */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -51,9 +49,9 @@ body {
   }
 }
 
-/* =========================
+/* 
    AUTH PAGES
-========================= */
+*/
 .auth-container {
   min-height: 100vh;
   display: flex;
@@ -163,7 +161,7 @@ body {
   font-size: 14px;
 }
 
-/* ===== VENDOR HEADER ===== */
+/* VENDOR HEADER */
 
 .vendor-header {
   display: flex;
@@ -184,7 +182,7 @@ body {
   margin-left: 12px;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS  */
 
 .primary-btn {
   background: linear-gradient(135deg, #6366f1, #4f46e5);
@@ -222,7 +220,7 @@ body {
   border-radius: 10px;
 }
 
-/* ===== VENDOR PAGE ===== */
+/*  VENDOR PAGE */
 
 .vendor-page {
   padding: 40px;
@@ -246,7 +244,7 @@ body {
 
 
 
-/* ===== MESS CARD ===== */
+/*  MESS CARD  */
 
 .mess-card {
   background: rgba(255,255,255,0.04);
@@ -281,7 +279,7 @@ body {
   opacity: 0.6;
 }
 
-/* ===== SWIGGY STYLE MESS CARD ===== */
+/*   STYLE MESS CARD  */
 
 .mess-card {
   display: flex;
@@ -327,7 +325,7 @@ body {
   color: #d1d5db;
 }
 
-/* ================= ADD MESS PAGE ================= */
+/*  ADD MESS PAGE  */
 
 .page-container {
   min-height: calc(100vh - 80px);
@@ -473,7 +471,7 @@ body {
   }
 }
 
-/* ===== BUTTON BASE ===== */
+/* BUTTON BASE */
 button {
   border: none;
   padding: 8px 14px;
@@ -485,7 +483,7 @@ button {
   overflow: hidden;
 }
 
-/* ===== ADD MENU BUTTON ===== */
+/* ADD MENU BUTTON  */
 .btn-primary {
   background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: #fff;
@@ -501,7 +499,7 @@ button {
   transform: scale(0.96);
 }
 
-/* ===== EDIT BUTTON ===== */
+/*  EDIT BUTTON */
 .btn-edit {
   background: rgba(255,255,255,0.15);
   color: #e0e7ff;
@@ -515,7 +513,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* ===== DELETE BUTTON ===== */
+/* DELETE BUTTON */
 .btn-delete {
   background: rgba(239,68,68,0.18);
   color: #fecaca;
@@ -528,7 +526,7 @@ button {
   box-shadow: 0 0 18px rgba(239,68,68,0.5);
 }
 
-/* ===== RIPPLE EFFECT (ALL BUTTONS) ===== */
+/* RIPPLE EFFECT (ALL BUTTONS) */
 button::after {
   content: "";
   position: absolute;
@@ -542,7 +540,7 @@ button:active::after {
   transform: scale(3);
 }
 
-/* ===== MENU CARD HOVER ===== */
+/*  MENU CARD HOVER */
 .menu-card {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -552,7 +550,7 @@ button:active::after {
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
 
-/* ===== PROFILE PAGE ===== */
+/* PROFILE PAGE */
 
 .profile-container {
   display: grid;
@@ -764,7 +762,7 @@ button:active::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/bg-pattern.png"); /* optional */
+  background-image: url("/bg-pattern.png"); 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right center;
@@ -781,7 +779,7 @@ button:active::after {
 }
 
 
-/* ===== STUDENT MENU TABLE ===== */
+/* STUDENT MENU TABLE  */
 
 .menu-table {
   margin-top: 20px;
@@ -834,7 +832,7 @@ button:active::after {
 
 
 
-/* ===== MESS DETAILS PAGE ===== */
+/* MESS DETAILS PAGE  */
 
 .mess-details-page {
   padding: 40px 60px;
@@ -942,7 +940,7 @@ button:active::after {
 }
 
 
-/* ===== STUDENT MENU VIEW ===== */
+/*  STUDENT MENU VIEW */
 
 .menu-cards.three-col {
   display: grid;

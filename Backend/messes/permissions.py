@@ -8,7 +8,7 @@ class IsOwner(BasePermission):
         if isinstance(obj, Mess):
             return obj.owner == request.user
 
-        # If object IS a Menu → check mess owner
+        # If object IS a Menu  check mess owner
         if isinstance(obj, Menu):
             return obj.mess.owner == request.user
 

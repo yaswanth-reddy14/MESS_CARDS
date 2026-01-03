@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Mess, Menu
-from users.models import User   # ✅ FIX (THIS WAS MISSING)
+from users.models import User   
 
 
 class MenuSerializer(serializers.ModelSerializer):
@@ -34,6 +34,6 @@ class MessSerializer(serializers.ModelSerializer):
             "monthly_price",
             "meals_included",
             "image",
-            "owner",        # student sees owner
-            "menu_items",   # student sees menu
+            "owner",        
+            "menu_items",   
         ]

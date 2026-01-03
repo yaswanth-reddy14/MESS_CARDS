@@ -10,9 +10,9 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(dotenv_path=BASE_DIR / ".env")
 
-# --------------------------------------------------
+
 # SECURITY
-# --------------------------------------------------
+
 
 SECRET_KEY = "django-insecure-local-dev-key-123456789"
 
@@ -20,9 +20,9 @@ DEBUG = os.getenv("DEBUG") == "True"
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
-# --------------------------------------------------
+
 # APPLICATIONS
-# --------------------------------------------------
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     "recommendations"
 ]
 
-# --------------------------------------------------
+
 # MIDDLEWARE
-# --------------------------------------------------
+
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -59,9 +59,9 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-# --------------------------------------------------
+
 # URLS / TEMPLATES
-# --------------------------------------------------
+
 
 ROOT_URLCONF = "config.urls"
 
@@ -83,9 +83,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# --------------------------------------------------
+
 # DATABASE (POSTGRESQL)
-# --------------------------------------------------
+
 
 DATABASES = {
     "default": {
@@ -98,40 +98,39 @@ DATABASES = {
     }
 }
 
-# --------------------------------------------------
 # CUSTOM USER MODEL (CRITICAL)
-# --------------------------------------------------
+
 
 AUTH_USER_MODEL = "users.User"
 
-# --------------------------------------------------
+
 # PASSWORD VALIDATION
-# --------------------------------------------------
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
 ]
 
-# --------------------------------------------------
+
 # I18N
-# --------------------------------------------------
+
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-# --------------------------------------------------
+
 # STATIC
-# --------------------------------------------------
+
 
 STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# --------------------------------------------------
+
 # DRF + JWT
-# --------------------------------------------------
+
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

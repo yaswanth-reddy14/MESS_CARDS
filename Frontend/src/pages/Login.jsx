@@ -19,7 +19,7 @@ export default function Login() {
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh", res.data.refresh);
 
-      // 🔑 fetch role
+      //  fetch role
       const me = await api.get("auth/me/");
       localStorage.setItem("role", me.data.role);
 

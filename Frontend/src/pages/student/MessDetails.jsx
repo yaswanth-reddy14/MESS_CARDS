@@ -53,7 +53,7 @@ export default function MessDetails() {
         </div>
       </div>
 
-      {/* ===== OWNER CONTACT ===== */}
+      {/* OWNER CONTACT  */}
       <div className="details-card">
         <h3 className="section-title">Owner Contact</h3>
 
@@ -75,7 +75,7 @@ export default function MessDetails() {
         </div>
       </div>
 
-      {/* ===== MENU ===== */}
+      {/* MENU  */}
       <div className="details-card">
         <h3 className="section-title">Mess Menu</h3>
 

@@ -13,13 +13,23 @@ class MessViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        queryset = Mess.objects.all()
 
         # OWNER sees only his messes
         if user.role == "OWNER":
-            return Mess.objects.filter(owner=user)
+            return queryset.filter(owner=user)
 
-        # STUDENT sees all messes
-        return Mess.objects.all()
+        # STUDENT: optional location search
+        location = self.request.query_params.get("location")
+
+        if location:
+            queryset = queryset.filter(
+                location__icontains=location
+            ) | queryset.filter(
+                address__icontains=location
+            )
+
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

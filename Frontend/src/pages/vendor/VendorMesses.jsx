@@ -81,7 +81,7 @@ export default function VendorMesses() {
   );
 }
 
-/* ================= STYLES ================= */
+/*  STYLES */
 
 const pageStyle = {
   padding: "20px",

@@ -20,7 +20,7 @@ urlpatterns = [
         "post": "create"
     })),
 
-    # 🔥 menu detail (THIS IS WHAT YOU WERE MISSING)
+    #  menu detail 
     path("<uuid:mess_id>/menus/<uuid:pk>/", MenuViewSet.as_view({
         "get": "retrieve",
         "put": "update",

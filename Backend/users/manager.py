@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
             name=name,
             role=role,
         )
-        user.set_password(password)   # 🔥 THIS IS CRITICAL
+        user.set_password(password)   
         user.save(using=self._db)
         return user
 

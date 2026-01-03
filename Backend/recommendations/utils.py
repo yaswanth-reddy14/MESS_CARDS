@@ -5,7 +5,7 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     """
     Returns distance in kilometers between two coordinates.
     """
-    R = 6371  # Earth radius in KM
+    R = 6371  
 
     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
 

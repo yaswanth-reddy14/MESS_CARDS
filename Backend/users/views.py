@@ -11,9 +11,8 @@ from .serializers import (
     UserSerializer,
 )
 
-# =========================
-# 🔐 AUTH: CURRENT USER
-# =========================
+
+#  AUTH: CURRENT USER
 class MeView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -36,25 +35,22 @@ class MeView(APIView):
         return Response({"message": "Account deleted successfully"})
 
 
-# =========================
-# 🔐 EMAIL LOGIN
-# =========================
+
+#  EMAIL LOGIN
+
 class EmailTokenObtainPairView(TokenObtainPairView):
     serializer_class = EmailTokenObtainPairSerializer
     permission_classes = [AllowAny]
 
 
-# =========================
 # 📝 REGISTER
-# =========================
 class RegisterView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = [AllowAny]
 
-# =========================
-# 📝 Change Password
-# =========================
+
+#  Change Password
 
 class ChangePasswordView(APIView):
     permission_classes = [IsAuthenticated]

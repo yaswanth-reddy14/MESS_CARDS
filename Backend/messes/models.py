@@ -9,12 +9,12 @@ class Mess(models.Model):
     owner = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="owned_messes"   # 🔑 UNIQUE related_name
+        related_name="owned_messes"   
     )
 
     name = models.CharField(max_length=200)
     address = models.TextField()
-    location = models.CharField(max_length=255)  # human-readable location
+    location = models.CharField(max_length=255)  
 
     image = models.ImageField(upload_to="messes/", null=True, blank=True)
 

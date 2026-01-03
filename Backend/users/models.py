@@ -16,6 +16,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
 
     phone = models.CharField(max_length=15, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
 
     groups = models.ManyToManyField(Group, blank=True)
     user_permissions = models.ManyToManyField(Permission, blank=True)
@@ -24,7 +25,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["name", "role"]   # ✅ FIXED
+    REQUIRED_FIELDS = ["name", "role"]   
 
     objects = UserManager()
 

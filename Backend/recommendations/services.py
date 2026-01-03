@@ -16,11 +16,11 @@ def rank_messes(student, preference, student_lat, student_lng):
     if not messes.exists():
         return []
 
-    # --- PRICE NORMALIZATION ---
+    # PRICE NORMALIZATION
     prices = list(messes.values_list("monthly_price", flat=True))
     min_price, max_price = min(prices), max(prices)
 
-    # --- PRE-FETCH RATINGS (NO N+1 QUERIES) ---
+    #  PRE-FETCH RATINGS 
     ratings_map = {
         r["mess"]: r["avg"]
         for r in Review.objects.values("mess")
@@ -35,22 +35,22 @@ def rank_messes(student, preference, student_lat, student_lng):
     ranked = []
 
     for mess in messes:
-        # 1️⃣ Price score
+        #  Price score
         price_score = 1 - normalize(
             mess.monthly_price, min_price, max_price
         )
 
-        # 2️⃣ Rating score
+        #  Rating score
         avg_rating = ratings_map.get(mess.id, 0)
         rating_score = avg_rating / 5
 
-        # 3️⃣ Distance score
+        #  Distance score
         distance = haversine_distance(
             student_lat, student_lng, mess.latitude, mess.longitude
         )
         distance_score = max(0, 1 - (distance / max_distance))
 
-        # 4️⃣ Food preference
+        #  Food preference
         food_score = (
             1
             if preferred_food == "BOTH"

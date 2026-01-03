@@ -14,9 +14,9 @@ export default function VendorProfile() {
 
 
 
-  // ========================
+  
   // LOAD PROFILE + MESSES
-  // ========================
+  
   useEffect(() => {
     api.get("auth/me/")
       .then(res => {
@@ -30,9 +30,9 @@ export default function VendorProfile() {
       .catch(() => {});
   }, []);
 
-  // ========================
+  
   // UPDATE PHONE
-  // ========================
+  
   const updatePhone = async () => {
     if (!phone.trim()) {
       alert("Phone number cannot be empty");
@@ -51,9 +51,9 @@ export default function VendorProfile() {
     }
   };
 
-// ========================
+
   // CHANGE PASSWORD
-  // ========================
+
   const changePassword = async () => {
   if (!oldPassword || !newPassword || !confirmPassword) {
     alert("All password fields are required");
@@ -85,11 +85,8 @@ export default function VendorProfile() {
   }
 };
 
-
-
-  // ========================
   // DELETE ACCOUNT
-  // ========================
+  
   const deleteProfile = async () => {
     if (!window.confirm("This will permanently delete your account. Continue?")) return;
 
@@ -133,7 +130,7 @@ export default function VendorProfile() {
 
         <div className="profile-info">
 
-  {/* ================= ACCOUNT OVERVIEW ================= */}
+  {/*  ACCOUNT OVERVIEW */}
   <h3 className="section-title">Account Overview</h3>
 
   <div className="info-row">
@@ -153,7 +150,7 @@ export default function VendorProfile() {
 
   <div className="divider" />
 
-  {/* ================= CONTACT INFO ================= */}
+  {/*  CONTACT INFO */}
   <h3 className="section-title">Contact Information</h3>
 
   <div className="info-row input-row">
@@ -176,7 +173,7 @@ export default function VendorProfile() {
 
   <div className="divider" />
 
-  {/* ================= SECURITY ================= */}
+  {/* SECURITY  */}
   <h3 className="section-title">Security</h3>
 
   <div className="info-row input-row">
@@ -216,7 +213,7 @@ export default function VendorProfile() {
 
   <div className="divider" />
 
-  {/* ================= DANGER ZONE ================= */}
+  {/*  DANGER ZONE  */}
   <h3 className="section-title danger">Danger Zone</h3>
 
   <button className="btn-danger" onClick={deleteProfile}>

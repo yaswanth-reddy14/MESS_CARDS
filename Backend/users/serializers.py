@@ -25,5 +25,5 @@ class EmailTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("id", "name", "email", "role", "phone")
+        fields = ("id", "name", "email", "role", "phone" , "location")
         read_only_fields = ("email", "role")
