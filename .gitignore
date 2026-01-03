@@ -1,10 +1,13 @@
-# Python
+# Environment variables
+.env
+
+# Python cache
 __pycache__/
 *.pyc
-.env
+
+# Django
+*.log
+db.sqlite3
 
 # Node
 node_modules/
-
-# OS
-.DS_Store
