@@ -3,26 +3,26 @@ import os
 from dotenv import load_dotenv
 from datetime import timedelta
 
-# --------------------------------------------------
+# =========================
 # BASE DIR & ENV
-# --------------------------------------------------
+# =========================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(dotenv_path=BASE_DIR / ".env")
+load_dotenv(BASE_DIR / ".env")
 
-
+# =========================
 # SECURITY
+# =========================
 
-
-SECRET_KEY = "django-insecure-local-dev-key-123456789"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["*"]  # safe behind proxy (Render/Vercel)
 
-
+# =========================
 # APPLICATIONS
-
+# =========================
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     "users",
     "messes",
     "reviews",
-    "recommendations"
+    "recommendations",
 ]
 
-
+# =========================
 # MIDDLEWARE
-
+# =========================
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -59,9 +59,14 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
 
+# =========================
 # URLS / TEMPLATES
-
+# =========================
 
 ROOT_URLCONF = "config.urls"
 
@@ -83,9 +88,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
+# =========================
 # DATABASE (POSTGRESQL)
-
+# =========================
 
 DATABASES = {
     "default": {
@@ -98,39 +103,46 @@ DATABASES = {
     }
 }
 
-# CUSTOM USER MODEL (CRITICAL)
-
+# =========================
+# CUSTOM USER MODEL
+# =========================
 
 AUTH_USER_MODEL = "users.User"
 
-
+# =========================
 # PASSWORD VALIDATION
-
+# =========================
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"
+    },
 ]
 
-
+# =========================
 # I18N
-
+# =========================
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-
-# STATIC
-
+# =========================
+# STATIC FILES
+# =========================
 
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+# =========================
 # DRF + JWT
-
+# =========================
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -140,8 +152,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ),
 }
-
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
